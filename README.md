@@ -79,7 +79,6 @@ Hi! I'm **Ritesh Agarwala**. I work as an MIS Analyst at Wipro, working with Pow
 I am currently upskilling and transitioning into data/ai engineering. After recently learning SQL, I built this project to apply and practice data warehousing concepts, ETL, and analytical querying step by step.
 
 * **LinkedIn**: [Profile](https://www.linkedin.com/in/ritesh-agarwala-255182297)
-* **Email**: [riteshagarwala4@gmail.com](mailto:riteshagarwala4@gmail.com)
 
 
 
