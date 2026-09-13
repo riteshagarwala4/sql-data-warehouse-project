@@ -5,6 +5,28 @@ This project demonstrates a comprehensive data warehousing and analytics solutio
 
 ---
 
+## Architecture at a Glance
+
+```text
+ERP + CRM CSV files
+        ↓
+Bronze layer — raw source data loaded into SQL Server
+        ↓
+Silver layer — data cleaned, standardised, and integrated
+        ↓
+Gold layer — star-schema views ready for reporting and analysis
+```
+
+The project uses the Medallion Architecture (Bronze → Silver → Gold) to keep raw data, transformation logic, and business-ready data clearly separated.
+
+## My Hands-On Implementation
+
+I completed this as a guided, hands-on implementation while learning from the Data With Baraa SQL Data Warehouse course. I manually worked through the database setup, Bronze/Silver/Gold loading process, data cleaning, dimensional modelling, and data-quality checks to understand how a SQL Server warehouse is built step by step.
+
+The goal was learning and practice: understand each query and stored procedure, run it myself, inspect the outputs, and connect the final Gold layer to analytical reporting.
+
+---
+
 ## Project Requirements
 
 ### Building the Data Warehouse (Data Engineering)
@@ -28,6 +50,21 @@ Develop SQL-based analytics to deliver detailed insights into:
 - **Sales Trends**
 
 These insights give stakeholders key business metrics to support strategic decision-making.
+
+---
+
+## How to Run
+
+**Requirements:** SQL Server, SQL Server Management Studio (SSMS), and the CSV files in the `datasets` folder.
+
+1. Open and run `scripts/init_database.sql`. This creates the `DataWarehouse` database and Bronze, Silver, and Gold schemas. It drops an existing database with the same name, so use it only for this learning project.
+2. Run `scripts/bronze/ddl_bronze.sql` and `scripts/silver/ddl_silver.sql` to create the Bronze and Silver tables.
+3. In `scripts/bronze/proc_load_bronze.sql`, update the CSV file paths to match the local location of this repository's `datasets` folder. Run the script, then execute `EXEC bronze.load_bronze;`.
+4. Run `scripts/silver/proc_load_silver.sql`, then execute `EXEC silver.load_silver;`.
+5. Run `scripts/gold/ddl_gold.sql` to create the reporting-ready Gold views.
+6. Run `tests/quality_checks_silver.sql` and `tests/quality_checks_gold.sql` to validate the transformed data.
+
+After these steps, the Gold views can be queried directly or used by the companion [SQL Sales Analysis Project](https://github.com/riteshagarwala4/sql-sales-analysis-project).
 
 ---
 
